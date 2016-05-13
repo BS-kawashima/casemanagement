@@ -11,9 +11,9 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('login.css') ?>
+    <?= $this->Html->css('agents.css') ?>
 
-    <?= $this->Html->script('login.js') ?>
+    <?= $this->Html->script('agents.js') ?>
 
 </head>
 <body>

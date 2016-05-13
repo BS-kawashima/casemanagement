@@ -38,7 +38,7 @@ use Cake\Network\Exception\NotFoundException;
     </header>
     <?=$this->Form->create(null, [
       'type' => 'post',
-      'url' => ['controller' => 'login', 'action' => 'confirm']
+      'url' => ['controller' => 'agents', 'action' => 'confirm']
     ]) ?>
     <?=$this->Form->label('id', 'ID:') ?>
     <?=$this->Form->text('id') ?><br>
