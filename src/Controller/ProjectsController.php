@@ -25,29 +25,18 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
-class LoginController extends AppController
+class ProjectsController extends AppController
 {
 
-    public function initialize()
-    {
-      //testレイアウトを指定
-      $this->viewBuilder()->layout('login');
-    }
-
+    /**
+     * Displays a view
+     *
+     * @return void|\Cake\Network\Response
+     * @throws \Cake\Network\Exception\NotFoundException When the view file could not
+     *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
+     */
     public function index()
     {
-
-    }
-
-    public function confirm()
-    {
-      //$this->autoRender = false;
-      $id = $this->request->data('id');
-      $password = $this->request->data('password');
-      if ( $id == 'admin' && $password == 'admin') {
-        $this->set('anser', 'ログイン成功');
-      } else {
-        $this->set('anser', 'ログイン失敗');
-      }
+        
     }
 }
