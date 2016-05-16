@@ -50,4 +50,14 @@ class AgentsController extends AppController
         return $this->redirect(['action' => 'index']);
       }
     }
+
+    public function registration()
+    {
+      $email = $this->request->data('id');
+      $password = $this->request->data('password');
+      $this->Agents->query()
+        ->insert(['email', 'password'])
+        ->values(['email' => $email, 'password' => $password])
+        ->execute();
+    }
 }
