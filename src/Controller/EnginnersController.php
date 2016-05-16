@@ -39,4 +39,54 @@ class EnginnersController extends AppController
     {
 
     }
+
+    public function list()
+    {
+      $list = $this->Enginners->find()->all();
+      $this->set(compact('list'));
+    }
+
+    public function registration()
+    {
+
+    }
+
+    public function process()
+    {
+      $this->autoRender = false;
+      $name = $this->request->data('name');
+      $phonetic = $this->request->data('phonetic');
+      $email = $this->request->data('email');
+      $skill_id = $this->request->data('skill_id');
+      $entering_date = $this->request->data('entering_date');
+      $this->Enginners->query()
+        ->insert(['name', 'phonetic', 'email', 'skill_id', 'entering_date'])
+        ->values(['name' => $name, 'phonetic' => $phonetic, 'email' => $email, 'skill_id' => $skill_id, 'entering_date' => $entering_date])
+        ->execute();
+      return $this->redirect(['action' => 'index']);
+    }
+
+    public function edit($enginner_id)
+    {
+      $list = $this->Enginners->find('all', ['conditions' => ['id' => $enginner_id]]);
+      $this->set(compact('list'));
+    }
+
+    public function editProcess()
+    {
+      $this->autoRender = false;
+      $enginner_id = $this->request->data('id');
+      $name = $this->request->data('name');
+      $phonetic = $this->request->data('phonetic');
+      $email = $this->request->data('email');
+      $skill_id = $this->request->data('skill_id');
+      $entering_date = $this->request->data('entering_date');
+      $status = $this->request->data('status');
+      $project_id = $this->request->data('project_id');
+      $this->Enginners->query()->update()
+        ->set(['name' => $name, 'phonetic' => $phonetic, 'email' => $email, 'skill_id' => $skill_id, 'entering_date' => $entering_date, 'status' => $status, 'project_id' => $project_id])
+        ->where(['id' => $enginner_id])
+        ->execute();
+      return $this->redirect(['action' => 'index']);
+    }
 }

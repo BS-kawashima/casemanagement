@@ -36,6 +36,7 @@ use Cake\Network\Exception\NotFoundException;
     <header>
       <h1>案件管理システム</h1>
     </header>
+    <div><input type="submit" value="内容確認">
     <?=$this->Form->create(null, [
       'type' => 'post',
       'url' => ['controller' => 'agents', 'action' => 'confirm']
@@ -46,5 +47,13 @@ use Cake\Network\Exception\NotFoundException;
     <?=$this->Form->password('password') ?>
     <?=$this->Form->submit('ログイン') ?>
     <?=$this->Form->end() ?>
+    <?=$this->Form->create(null, ['url' => ['action' => 'registration']]) ?>
+    <?=$this->Form->label('id', 'ID:') ?>
+    <?=$this->Form->text('id') ?><br>
+    <?=$this->Form->label('password', 'PASSWORD:') ?>
+    <?=$this->Form->password('password') ?>
+    <?=$this->Form->submit('営業者を登録する') ?>
+    <?=$this->Form->end() ?>
+    </div>
 </body>
 </html>
