@@ -42,7 +42,8 @@ class EnginnersController extends AppController
 
     public function list()
     {
-      $list = $this->Enginners->find()->all();
+      $list = $this->Enginners->find()
+      ->contain(['Skills']);
       $this->set(compact('list'));
     }
 

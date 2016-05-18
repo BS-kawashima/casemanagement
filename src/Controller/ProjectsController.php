@@ -37,6 +37,61 @@ class ProjectsController extends AppController
      */
     public function index()
     {
-        
+
+    }
+
+    public function list()
+    {
+      $list = $this->Projects->find();
+      $this->set(compact('list'));
+    }
+
+    public function registration()
+    {
+
+    }
+
+    public function process()
+    {
+      $this->autoRender = false;
+      $name = $this->request->data('name');
+      $agent = $this->request->data('agent');
+      $client = $this->request->data('client');
+      $skill = $this->request->data('skill');
+      $staffs_number = $this->request->data('staffs_number');
+      $from_date = $this->request->data('from_date');
+      $to_date = $this->request->data('to_date');
+      $memo = $this->request->data('memo');
+      $this->Projects->query()
+        ->insert(['name', 'agent_id', 'client_id', 'skill_id', 'staffs_number', 'from_date', 'to_date', 'memo'])
+        ->values(['name' => $name, 'agent_id' => $agent, 'client_id' => $client, 'skill_id' => $skill, 'staffs_number' => $staffs_number, 'from_date' => $from_date, 'to_date' => $to_date, 'memo' => $memo])
+        ->execute();
+      return $this->redirect(['action' => 'index']);
+    }
+
+    public function edit($project_id)
+    {
+      $list = $this->Projects->find('all', ['conditions' => ['id' => $project_id]]);
+      $this->set(compact('list'));
+    }
+
+    public function editProcess()
+    {
+      $this->autoRender = false;
+      $project_id = $this->request->data('id');
+      $name = $this->request->data('name');
+      $agent_id = $this->request->data('agent_id');
+      $client_id = $this->request->data('client_id');
+      $skill_id = $this->request->data('skill_id');
+      $staffs_number = $this->request->data('staffs_number');
+      $from_date = $this->request->data('from_date');
+      $to_date = $this->request->data('to_date');
+      $status = $this->request->data('status');
+      $memo = $this->request->data('memo');
+      $this->Projects->query()->update()
+        ->set(['name' => $name, 'agent_id' => $agent_id, 'client_id' => $client_id, 'skill_id' => $skill_id, 'staffs_number' => $staffs_number, 'from_date' => $from_date, 'to_date' => $to_date, 'status' => $status, 'memo' => $memo])
+        ->where(['id' => $project_id])
+        ->execute();
+      return $this->redirect(['action' => 'index']);
     }
 }
