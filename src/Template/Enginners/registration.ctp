@@ -14,3 +14,6 @@
 <?= $this->Form->text('entering_date', ['dafault' => 'test']) ?>
 <?= $this->Form->submit('登録') ?>
 <?= $this->Form->end() ?>
+<?=$this->Form->create(null, ['url' => ['controller' => 'Enginners', 'action' => 'index']]) ?>
+<?=$this->Form->button('前の画面へ戻る') ?>
+<?=$this->Form->end() ?>

@@ -7,5 +7,5 @@
 <?=$this->Form->button('技術者管理') ?>
 <?=$this->Form->end() ?>
 <?=$this->Form->create(null, ['url' => ['controller' => 'agents', 'action' => 'index']]) ?>
-<?=$this->Form->button('ログイン画面へ戻る') ?>
+<?=$this->Form->button('ログアウトする') ?>
 <?=$this->Form->end() ?>

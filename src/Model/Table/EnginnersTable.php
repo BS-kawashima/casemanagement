@@ -33,6 +33,10 @@ class EnginnersTable extends Table
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Skills', [
+            'foreignKey' => 'skill_id',
+            'joinType'=> 'INNER'
+        ]);
     }
 
     /**
