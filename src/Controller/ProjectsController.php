@@ -42,7 +42,8 @@ class ProjectsController extends AppController
 
     public function list()
     {
-      $list = $this->Projects->find();
+      $list = $this->Projects->find()
+        ->contain(['Agents', 'Clients', 'Skills']);
       $this->set(compact('list'));
     }
 
