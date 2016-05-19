@@ -5,8 +5,8 @@
   <?= $this->Form->label('e-mail', 'e-mail: '. $i->email) ?>
   <?= $this->Form->label('skill', 'スキル: '. $i->skill->name) ?>
   <?= $this->Form->label('entering_date', '入社日: '. $i->entering_date) ?>
-  <?= $this->Form->label('status', '状態: '. $i->status) ?>
-  <?= $this->Form->label('project_id', '現場名: '. $i->project_id) ?>
+  <?= $this->Form->label('status', '状態: '. $i->status->name) ?>
+  <?= $this->Form->label('project_id', '出向プロジェクト名: '. $i->project->name) ?>
   <?= $this->Form->create(null,['type' => 'get', 'url' => ['contorller' => 'enginners', 'action' => 'edit', $i->id]]) ?>
   <?= $this->Form->button('編集する') ?>
   <?= $this->Form->end() ?>
