@@ -27,12 +27,7 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class AgentsController extends AppController
 {
-
-    public function initialize()
-    {
-      $this->viewBuilder()->layout('agents');
-    }
-
+	
     public function index()
     {
 

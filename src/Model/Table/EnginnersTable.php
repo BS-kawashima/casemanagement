@@ -15,100 +15,100 @@ use Cake\Validation\Validator;
 class EnginnersTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-        parent::initialize($config);
+	/**
+	 * Initialize method
+	 *
+	 * @param array $config The configuration for the Table.
+	 * @return void
+	 */
+	public function initialize(array $config)
+	{
+		parent::initialize($config);
 
-        $this->table('enginners');
-        $this->displayField('name');
-        $this->primaryKey('id');
+		$this->table('enginners');
+		$this->displayField('name');
+		$this->primaryKey('id');
 
-        $this->belongsTo('Projects', [
-            'foreignKey' => 'project_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Skills', [
-            'foreignKey' => 'skill_id',
-            'joinType'=> 'INNER'
-        ]);
-        $this->belongsTo('Status', [
-            'foreienKey' => 'status_id',
-            'joinType' => 'INNER'
-        ]);
-    }
+		$this->belongsTo('Projects', [
+			'foreignKey' => 'project_id',
+			'joinType' => 'INNER'
+		]);
+		$this->belongsTo('Skills', [
+			'foreignKey' => 'skill_id',
+			'joinType'=> 'INNER'
+		]);
+		$this->belongsTo('Status', [
+			'foreienKey' => 'status_id',
+			'joinType' => 'INNER'
+		]);
+	}
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+	/**
+	 * Default validation rules.
+	 *
+	 * @param \Cake\Validation\Validator $validator Validator instance.
+	 * @return \Cake\Validation\Validator
+	 */
+	public function validationDefault(Validator $validator)
+	{
+		$validator
+			->integer('id')
+			->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name')
-            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+		$validator
+			->requirePresence('name', 'create')
+			->notEmpty('name')
+			->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
-        $validator
-            ->requirePresence('phonetic', 'create')
-            ->notEmpty('phonetic');
+		$validator
+			->requirePresence('phonetic', 'create')
+			->notEmpty('phonetic');
 
-        $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+		$validator
+			->email('email')
+			->requirePresence('email', 'create')
+			->notEmpty('email');
 
-        $validator
-            ->integer('skill')
-            ->requirePresence('skill', 'create')
-            ->notEmpty('skill');
+		$validator
+			->integer('skill')
+			->requirePresence('skill', 'create')
+			->notEmpty('skill');
 
-        $validator
-            ->dateTime('entering_date')
-            ->requirePresence('entering_date', 'create')
-            ->notEmpty('entering_date');
+		$validator
+			->dateTime('entering_date')
+			->requirePresence('entering_date', 'create')
+			->notEmpty('entering_date');
 
-        $validator
-            ->integer('status')
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
+		$validator
+			->integer('status')
+			->requirePresence('status', 'create')
+			->notEmpty('status');
 
-        $validator
-            ->dateTime('create')
-            ->requirePresence('create', 'create')
-            ->notEmpty('create');
+		$validator
+			->dateTime('create')
+			->requirePresence('create', 'create')
+			->notEmpty('create');
 
-        $validator
-            ->dateTime('update')
-            ->requirePresence('update', 'create')
-            ->notEmpty('update');
+		$validator
+			->dateTime('update')
+			->requirePresence('update', 'create')
+			->notEmpty('update');
 
-        return $validator;
-    }
+		return $validator;
+	}
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->isUnique(['name']));
-        $rules->add($rules->existsIn(['project_id'], 'Projects'));
-        return $rules;
-    }
+	/**
+	 * Returns a rules checker object that will be used for validating
+	 * application integrity.
+	 *
+	 * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+	 * @return \Cake\ORM\RulesChecker
+	 */
+	public function buildRules(RulesChecker $rules)
+	{
+		$rules->add($rules->isUnique(['email']));
+		$rules->add($rules->isUnique(['name']));
+		$rules->add($rules->existsIn(['project_id'], 'Projects'));
+		return $rules;
+	}
 }

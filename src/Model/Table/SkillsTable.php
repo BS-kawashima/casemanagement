@@ -15,51 +15,51 @@ use Cake\Validation\Validator;
 class SkillsTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-        parent::initialize($config);
+	/**
+	 * Initialize method
+	 *
+	 * @param array $config The configuration for the Table.
+	 * @return void
+	 */
+	public function initialize(array $config)
+	{
+		parent::initialize($config);
 
-        $this->table('skills');
-        $this->displayField('name');
-        $this->primaryKey('id');
+		$this->table('skills');
+		$this->displayField('name');
+		$this->primaryKey('id');
 
-        $this->hasMany('Projects', [
-            'foreignKey' => 'skill_id'
-        ]);
-    }
+		$this->hasMany('Projects', [
+			'foreignKey' => 'skill_id'
+		]);
+	}
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+	/**
+	 * Default validation rules.
+	 *
+	 * @param \Cake\Validation\Validator $validator Validator instance.
+	 * @return \Cake\Validation\Validator
+	 */
+	public function validationDefault(Validator $validator)
+	{
+		$validator
+			->integer('id')
+			->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+		$validator
+			->requirePresence('name', 'create')
+			->notEmpty('name');
 
-        $validator
-            ->dateTime('create')
-            ->requirePresence('create', 'create')
-            ->notEmpty('create');
+		$validator
+			->dateTime('create')
+			->requirePresence('create', 'create')
+			->notEmpty('create');
 
-        $validator
-            ->dateTime('update')
-            ->requirePresence('update', 'create')
-            ->notEmpty('update');
+		$validator
+			->dateTime('update')
+			->requirePresence('update', 'create')
+			->notEmpty('update');
 
-        return $validator;
-    }
+		return $validator;
+	}
 }
