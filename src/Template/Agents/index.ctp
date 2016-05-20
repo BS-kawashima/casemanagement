@@ -25,35 +25,34 @@ use Cake\Network\Exception\NotFoundException;
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+	<?= $this->Html->charset() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		<?= $cakeDescription ?>
+	</title>
+	<?= $this->Html->meta('icon') ?>
 </head>
 <body>
-    <header>
-      <h1>案件管理システム</h1>
-    </header>
-    <div><input type="submit" value="内容確認">
-    <?=$this->Form->create(null, [
-      'type' => 'post',
-      'url' => ['controller' => 'agents', 'action' => 'confirm']
-    ]) ?>
-    <?=$this->Form->label('id', 'ID:') ?>
-    <?=$this->Form->text('id') ?><br>
-    <?=$this->Form->label('password', 'PASSWORD:') ?>
-    <?=$this->Form->password('password') ?>
-    <?=$this->Form->submit('ログイン') ?>
-    <?=$this->Form->end() ?>
-    <?=$this->Form->create(null, ['url' => ['action' => 'registration']]) ?>
-    <?=$this->Form->label('id', 'ID:') ?>
-    <?=$this->Form->text('id') ?><br>
-    <?=$this->Form->label('password', 'PASSWORD:') ?>
-    <?=$this->Form->password('password') ?>
-    <?=$this->Form->submit('営業者を登録する') ?>
-    <?=$this->Form->end() ?>
-    </div>
+	<header>
+		<h1>案件管理システム</h1>
+	</header>
+	<?=$this->Form->create(null, [
+		'type' => 'post',
+		'url' => ['controller' => 'agents', 'action' => 'confirm']
+		]) ?>
+	<?=$this->Form->label('id', 'ID:') ?>
+	<?=$this->Form->text('id') ?><br>
+	<?=$this->Form->label('password', 'PASSWORD:') ?>
+	<?=$this->Form->password('password') ?>
+	<?=$this->Form->submit('ログイン') ?>
+	<?=$this->Form->end() ?>
+	<?=$this->Form->create(null, ['url' => ['action' => 'registration']]) ?>
+	<?=$this->Form->label('id', 'ID:') ?>
+	<?=$this->Form->text('id') ?><br>
+	<?=$this->Form->label('password', 'PASSWORD:') ?>
+	<?=$this->Form->password('password') ?>
+	<?=$this->Form->submit('営業者を登録する') ?>
+	<?=$this->Form->end() ?>
+	</div>
 </body>
 </html>

@@ -16,77 +16,77 @@ use Cake\Validation\Validator;
 class ClientsTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-        parent::initialize($config);
+	/**
+	 * Initialize method
+	 *
+	 * @param array $config The configuration for the Table.
+	 * @return void
+	 */
+	public function initialize(array $config)
+	{
+		parent::initialize($config);
 
-        $this->table('clients');
-        $this->displayField('name');
-        $this->primaryKey('id');
+		$this->table('clients');
+		$this->displayField('name');
+		$this->primaryKey('id');
 
-        $this->belongsTo('Agents', [
-            'foreignKey' => 'agent_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->hasMany('Projects', [
-            'foreignKey' => 'client_id'
-        ]);
-    }
+		$this->belongsTo('Agents', [
+			'foreignKey' => 'agent_id',
+			'joinType' => 'INNER'
+		]);
+		$this->hasMany('Projects', [
+			'foreignKey' => 'client_id'
+		]);
+	}
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+	/**
+	 * Default validation rules.
+	 *
+	 * @param \Cake\Validation\Validator $validator Validator instance.
+	 * @return \Cake\Validation\Validator
+	 */
+	public function validationDefault(Validator $validator)
+	{
+		$validator
+			->integer('id')
+			->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+		$validator
+			->requirePresence('name', 'create')
+			->notEmpty('name');
 
-        $validator
-            ->requirePresence('phonetic', 'create')
-            ->notEmpty('phonetic');
+		$validator
+			->requirePresence('phonetic', 'create')
+			->notEmpty('phonetic');
 
-        $validator
-            ->integer('status')
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
+		$validator
+			->integer('status')
+			->requirePresence('status', 'create')
+			->notEmpty('status');
 
-        $validator
-            ->dateTime('create')
-            ->requirePresence('create', 'create')
-            ->notEmpty('create');
+		$validator
+			->dateTime('create')
+			->requirePresence('create', 'create')
+			->notEmpty('create');
 
-        $validator
-            ->dateTime('update')
-            ->requirePresence('update', 'create')
-            ->notEmpty('update');
+		$validator
+			->dateTime('update')
+			->requirePresence('update', 'create')
+			->notEmpty('update');
 
-        return $validator;
-    }
+		return $validator;
+	}
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['agent_id'], 'Agents'));
-        return $rules;
-    }
+	/**
+	 * Returns a rules checker object that will be used for validating
+	 * application integrity.
+	 *
+	 * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+	 * @return \Cake\ORM\RulesChecker
+	 */
+	public function buildRules(RulesChecker $rules)
+	{
+		$rules->add($rules->existsIn(['agent_id'], 'Agents'));
+		return $rules;
+	}
 }

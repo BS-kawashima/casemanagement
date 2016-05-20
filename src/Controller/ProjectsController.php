@@ -28,6 +28,11 @@ use Cake\View\Exception\MissingTemplateException;
 class ProjectsController extends AppController
 {
 
+	public function initialize()
+	{
+		$this->viewBuilder()->layout('projects');
+	}
+
     /**
      * Displays a view
      *

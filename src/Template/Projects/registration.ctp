@@ -1,6 +1,6 @@
 <?= $this->Form->create(null, [
-  'type' => 'post',
-  'url' => ['action' => 'process']
+	'type' => 'post',
+	'url' => ['action' => 'process']
 ]) ?>
 <?= $this->Form->label('name', '案件名： ') ?>
 <?= $this->Form->text('name') ?>
