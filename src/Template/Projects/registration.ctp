@@ -13,9 +13,9 @@
 <?= $this->Form->label('staffs_number', '募集人数: ') ?>
 <?= $this->Form->text('staffs_number') ?>
 <?= $this->Form->label('from_date', '開始時期: ') ?>
-<?= $this->Form->text('from_date') ?>
+<?= $this->Form->text('from_date', ['class' => 'datepicker']) ?>
 <?= $this->Form->label('to_date', '終了時期: ') ?>
-<?= $this->Form->text('to_date') ?>
+<?= $this->Form->text('to_date', ['class' => 'datepicker']) ?>
 <?= $this->Form->label('memo', '備考: ') ?>
 <?= $this->Form->textarea('memo') ?>
 <?= $this->Form->submit('登録') ?>

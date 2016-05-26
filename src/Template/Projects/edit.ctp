@@ -13,9 +13,9 @@
 	<?= $this->Form->label('staffs_number', '募集人数、稼動人数： ') ?>
 	<?= $this->Form->text('staffs_number', ['default' =>  $i->staffs_number]) ?>
 	<?= $this->Form->label('from_date', '開始時期： ') ?>
-	<?= $this->Form->text('from_date', ['default' => $i->from_date]) ?>
+	<?= $this->Form->text('from_date', ['default' => $i->from_date, 'class' => 'datepicker']) ?>
 	<?= $this->Form->label('to_date', '終了予定時期: ') ?>
-	<?= $this->Form->text('to_date', ['default' => $i->to_date]) ?>
+	<?= $this->Form->text('to_date', ['default' => $i->to_date, 'class' => 'datepicker']) ?>
 	<?= $this->Form->label('status', '状態') ?>
 	<?= $this->Form->text('status', ['default' =>  $i->status]) ?>
 	<?= $this->Form->label('memo', '備考： ') ?>
@@ -23,6 +23,6 @@
 	<?= $this->Form->submit('編集する') ?>
 	<?= $this->Form->end() ?>
 <?php } ?>
-	<?=$this->Form->create(null, ['url' => ['controller' => 'Enginners', 'action' => 'index']]) ?>
+	<?=$this->Form->create(null, ['url' => ['action' => 'index']]) ?>
 	<?=$this->Form->button('前の画面へ戻る') ?>
 	<?=$this->Form->end() ?>

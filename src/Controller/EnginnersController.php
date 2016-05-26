@@ -28,6 +28,10 @@ use Cake\View\Exception\MissingTemplateException;
 class EnginnersController extends AppController
 {
 
+	public function initialize()
+	{
+		$this->viewBuilder()->layout('enginners');
+	}
 	/**
 	 * Displays a view
 	 *
