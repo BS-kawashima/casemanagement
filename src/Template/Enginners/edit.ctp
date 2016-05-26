@@ -11,7 +11,7 @@
 	<?= $this->Form->label('skill', '使用言語、スキル： ') ?>
 	<?= $this->Form->text('skill_id', ['default' =>  $i->skill_id]) ?>
 	<?= $this->Form->label('entering_date', '入社日： ') ?>
-	<?= $this->Form->text('entering_date', ['default' =>  $i->entering_date]) ?>
+	<?= $this->Form->text('entering_date', ['default' =>  $i->entering_date, 'class' => 'datepicker']) ?>
 	<?= $this->Form->label('status', '状態') ?>
 	<?= $this->Form->text('status', ['default' =>  $i->status]) ?>
 	<?= $this->Form->label('project_id', '現場名： ') ?>

@@ -11,7 +11,7 @@
 <?= $this->Form->label('skill_id', 'スキル:') ?>
 <?= $this->Form->text('skill_id') ?>
 <?= $this->Form->label('entering_date', '入社日:') ?>
-<?= $this->Form->text('entering_date', ['dafault' => 'test']) ?>
+<?= $this->Form->text('entering_date', ['dafault' => 'test', 'class' => 'datepicker']) ?>
 <?= $this->Form->submit('登録') ?>
 <?= $this->Form->end() ?>
 <?=$this->Form->create(null, ['url' => ['controller' => 'Enginners', 'action' => 'index']]) ?>
